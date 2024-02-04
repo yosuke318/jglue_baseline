@@ -1,0 +1,10 @@
+version: '3'
+services:
+  jsts_service:
+    restart: always
+    build: .
+    container_name: 'jsts_container'
+    working_dir: tasks
+    tty: true
+    volumes:
+      - ./tasks:/tasks
