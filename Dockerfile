@@ -1,4 +1,8 @@
-FROM python:3.11
+FROM python:3.10
 
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+
+WORKDIR tasks
+COPY requirements.txt /tasks/requirements.txt
+
+RUN pip install -r /tasks/requirements.txt

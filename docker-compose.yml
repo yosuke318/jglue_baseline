@@ -4,7 +4,5 @@ services:
     restart: always
     build: .
     container_name: 'jsts_container'
-    working_dir: tasks
+
     tty: true
-    volumes:
-      - ./tasks:/tasks
