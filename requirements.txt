@@ -8,4 +8,6 @@ bitarray==2.9.2
 tqdm==4.66.1
 scikit-learn==1.4.0
 sacrebleu==2.4.0
+transformers==4.38.1
+datasets==2.17.1
 
