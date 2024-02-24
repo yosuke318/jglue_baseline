@@ -94,3 +94,34 @@ for epoch in range(EPOCHS):
             val_loss += outputs.loss.item()
 
     print(f"Epoch {epoch + 1}/{EPOCHS}, Validation Loss: {val_loss / len(val_loader)}")
+
+# 以下は推論
+# 推論用のデータを用意する
+new_data = [
+    {
+        "sentence1": "太陽が昇る",
+        "sentence2": "日が昇っている",
+    },
+    {
+        "sentence1": "猫が庭で寝ている",
+        "sentence2": "青い空が広がっている",
+    }
+]
+
+# データをトークン化し、PyTorchのテンソルに変換する
+inputs = []
+for example in new_data:
+    encoding = tokenizer(example["sentence1"], example["sentence2"], truncation=True, padding='max_length', max_length=MAX_LEN, return_tensors='pt')
+    inputs.append({
+        'input_ids': encoding['input_ids'].flatten(),
+        'attention_mask': encoding['attention_mask'].flatten(),
+    })
+
+# 推論を実行する
+model.eval()
+with torch.no_grad():
+    for example in inputs:
+        input_ids = example['input_ids'].unsqueeze(0)  # バッチサイズ1の次元を追加
+        attention_mask = example['attention_mask'].unsqueeze(0)  # バッチサイズ1の次元を追加
+        outputs = model(input_ids, attention_mask=attention_mask)
+        print("Prediction:", outputs.logits.item())
