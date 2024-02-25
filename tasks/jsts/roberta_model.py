@@ -1,8 +1,16 @@
 import torch
 from transformers import RobertaTokenizer, RobertaForSequenceClassification
 from torch.utils.data import DataLoader, Dataset
-from transformers import AdamW
 import json
+import git
+import random
+import numpy as np
+
+# 乱数生成器のシードを設定
+seed = 42
+torch.manual_seed(seed)
+np.random.seed(seed)
+random.seed(seed)
 
 
 # データの準備
@@ -37,14 +45,14 @@ class CustomDataset(Dataset):
 MAX_LEN = 128
 BATCH_SIZE = 16
 LEARNING_RATE = 2e-5
-EPOCHS = 5
+EPOCHS = 3
 
 # 学習データの読み込み
-train_json = open('train-v1.1_temp.json', 'r')
+train_json = open('training.json', 'r')
 train_data = json.load(train_json)['train']
 
 # 検証データの読み込み
-valid_json = open('valid-v1.1_tmp.json', 'r')
+valid_json = open('validation.json', 'r')
 val_data = json.load(valid_json)['valid']
 
 train_sentences = [data['sentence1'] + ' ' + data['sentence2'] for data in train_data]
@@ -67,7 +75,7 @@ model = RobertaForSequenceClassification.from_pretrained('roberta-base', num_lab
 model.train()
 
 # オプティマイザーの設定
-optimizer = AdamW(model.parameters(), lr=LEARNING_RATE)
+optimizer = torch.optim.AdamW(model.parameters(), lr=LEARNING_RATE)
 
 # 学習ループ
 for epoch in range(EPOCHS):
@@ -99,12 +107,12 @@ for epoch in range(EPOCHS):
 # 推論用のデータを用意する
 new_data = [
     {
-        "sentence1": "太陽が昇る",
-        "sentence2": "日が昇っている",
+        "sentence1": "林の中を1台の自転車が走行しています。",
+        "sentence2": "林の中で1台の自転車が走行しています。",
     },
     {
         "sentence1": "猫が庭で寝ている",
-        "sentence2": "青い空が広がっている",
+        "sentence2": "ゴミが落ちている",
     }
 ]
 
@@ -125,3 +133,26 @@ with torch.no_grad():
         attention_mask = example['attention_mask'].unsqueeze(0)  # バッチサイズ1の次元を追加
         outputs = model(input_ids, attention_mask=attention_mask)
         print("Prediction:", outputs.logits.item())
+
+# 現在のリポジトリのコミットIDを取得
+repo = git.Repo(search_parent_directories=True)
+commit_id = repo.head.object.hexsha
+
+# モデルを保存するパス
+save_path = f"roberta_sequence_classification_model_{commit_id}.pt"
+
+# モデルを初期化して保存
+model = RobertaForSequenceClassification.from_pretrained('roberta-base', num_labels=1)
+torch.save(model.state_dict(), save_path)
+
+
+# 現在のリポジトリのコミットIDを取得
+repo = git.Repo(search_parent_directories=True)
+commit_id = repo.head.object.hexsha
+
+# モデルを保存するパス
+save_path = f"models/roberta_sequence_classification_model_{commit_id}.pt"
+
+# モデルを初期化して保存
+model = RobertaForSequenceClassification.from_pretrained('roberta-base', num_labels=1)
+torch.save(model.state_dict(), save_path)
