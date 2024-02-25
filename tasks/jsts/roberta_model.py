@@ -134,17 +134,6 @@ with torch.no_grad():
         outputs = model(input_ids, attention_mask=attention_mask)
         print("Prediction:", outputs.logits.item())
 
-# 現在のリポジトリのコミットIDを取得
-repo = git.Repo(search_parent_directories=True)
-commit_id = repo.head.object.hexsha
-
-# モデルを保存するパス
-save_path = f"roberta_sequence_classification_model_{commit_id}.pt"
-
-# モデルを初期化して保存
-model = RobertaForSequenceClassification.from_pretrained('roberta-base', num_labels=1)
-torch.save(model.state_dict(), save_path)
-
 
 # 現在のリポジトリのコミットIDを取得
 repo = git.Repo(search_parent_directories=True)
