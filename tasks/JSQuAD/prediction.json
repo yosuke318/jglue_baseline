@@ -1,0 +1,81 @@
+{
+  "qas": [
+    {
+      "question": "打楽器は、楽器分類学では何と何に分けられるか。",
+      "id": "a17450p0q0",
+      "answers": [
+        {
+          "text": "体鳴楽器と膜鳴楽器",
+          "answer_start": 98
+        },
+        {
+          "text": "体鳴楽器と膜鳴楽器",
+          "answer_start": 98
+        },
+        {
+          "text": "体鳴楽器と膜鳴楽器",
+          "answer_start": 98
+        }
+      ],
+      "is_impossible": false
+    },
+    {
+      "question": "弦楽器や管楽器より原始的な楽器とは。",
+      "id": "a17450p0q1",
+      "answers": [
+        {
+          "text": "打楽器",
+          "answer_start": 0
+        },
+        {
+          "text": "打楽器",
+          "answer_start": 0
+        },
+        {
+          "text": "打楽器",
+          "answer_start": 0
+        }
+      ],
+      "is_impossible": false
+    },
+    {
+      "question": "打楽器は、楽器分類学上、何楽器と何楽器に分類されているか。",
+      "id": "a17450p0q2",
+      "answers": [
+        {
+          "text": "体鳴楽器と膜鳴楽器",
+          "answer_start": 98
+        },
+        {
+          "text": "体鳴楽器と膜鳴楽器",
+          "answer_start": 98
+        },
+        {
+          "text": "体鳴楽器と膜鳴楽器",
+          "answer_start": 98
+        }
+      ],
+      "is_impossible": false
+    },
+    {
+      "question": "打楽器は分類として、体鳴楽器と何楽器に分けられるか。",
+      "id": "a17450p0q3",
+      "answers": [
+        {
+          "text": "膜鳴楽器",
+          "answer_start": 103
+        },
+        {
+          "text": "膜鳴楽器",
+          "answer_start": 103
+        },
+        {
+          "text": "膜鳴楽器",
+          "answer_start": 103
+        }
+      ],
+      "is_impossible": false
+    }
+  ],
+  "context": "打楽器 [SEP] 打楽器（だがっき）とは、打つ、こする、振るなどして音を出す楽器の総称で、各民族に様々な楽器がある。弦楽器や管楽器と比べて原始的で、長い歴史を持つと考えられている。楽器分類学では体鳴楽器と膜鳴楽器に分けられる。"
+}
