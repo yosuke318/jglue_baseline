@@ -98,33 +98,37 @@ model.train()
 
 # オプティマイザーの設定
 optimizer = torch.optim.AdamW(model.parameters(), lr=LEARNING_RATE)
-criterion = nn.CrossEntropyLoss()
+loss = nn.CrossEntropyLoss()
 
 # 学習ループ
 for epoch in range(EPOCHS):
     for batch in train_loader:
         input_ids = batch['input_ids']
         attention_mask = batch['attention_mask']
-        labels = torch.tensor([tokenizer.encode(answer, add_special_tokens=False)[0] for answer in batch['labels']], dtype=torch.long).to(input_ids.device)
+        labels = torch.tensor([tokenizer.encode(answer, add_special_tokens=False)[0] for answer in batch['labels']],
+                              dtype=torch.float64).to(input_ids.device)
 
         optimizer.zero_grad()
-
         outputs = model.forward(input_ids=input_ids, attention_mask=attention_mask)
-
         optimizer.step()
 
-#     # バリデーション
-#     val_loss = 0
-#     with torch.no_grad():
-#         for batch in val_loader:
-#             input_ids = batch['input_ids']
-#             attention_mask = batch['attention_mask']
-#             labels = batch['labels']
-#
-#             outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
-#             val_loss += outputs.loss.item()
-#
-#     print(f"Epoch {epoch + 1}/{EPOCHS}, Validation Loss: {val_loss / len(val_loader)}")
+    # バリデーション
+    val_loss = 0
+    with torch.no_grad():
+        for batch in val_loader:
+            input_ids = batch['input_ids']
+            attention_mask = batch['attention_mask']
+            labels = torch.tensor([tokenizer.encode(answer, add_special_tokens=False)[0] for answer in batch['labels']],
+                                  dtype=torch.float64).to(input_ids.device)
+
+            print("input_idsの型:", type(input_ids.dim()))
+            print("labelsの型:", type(labels.dim()))
+            print("labels変換後の型:", type(labels.to(torch.long).dim()))
+
+            outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
+            val_loss += outputs.loss.item()
+
+    print(f"Epoch {epoch + 1}/{EPOCHS}, Validation Loss: {val_loss / len(val_loader)}")
 #
 # # 以下は推論
 # # 推論データの読み込み
