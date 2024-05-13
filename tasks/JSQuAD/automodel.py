@@ -101,3 +101,16 @@ training_args = TrainingArguments(
 from transformers import default_data_collator
 data_collator = default_data_collator
 
+from transformers import Trainer, EarlyStoppingCallback
+
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=tokenized_data["train"],
+    eval_dataset=tokenized_data["validation"],
+    data_collator=data_collator,
+    tokenizer=tokenizer,
+    callbacks=[EarlyStoppingCallback(early_stopping_patience=3)],
+)
+
+trainer.train()
