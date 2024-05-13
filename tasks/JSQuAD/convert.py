@@ -24,5 +24,5 @@ def load_json_file(file_path):
 
 if __name__ == "__main__":
     data = load_json_file('./training.json')
-    converted_data = convert_json_format(data)
+    converted_data = convert_json_format(data['train'])
     print(converted_data)
