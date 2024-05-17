@@ -29,7 +29,7 @@ def save_json_file(data, file_path):
 
 
 if __name__ == "__main__":
-    data = load_json_file('./training.json')
-    converted_data = convert_json_format(data['train'])
+    data = load_json_file('./validation.json')  # todo 訓練用と検証用書き換える
+    converted_data = convert_json_format(data['valid'])
     print(converted_data)
-    save_json_file(converted_data, "./new_training.json")
+    save_json_file(converted_data, "./new_validation.json")
