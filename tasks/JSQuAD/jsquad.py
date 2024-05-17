@@ -85,11 +85,11 @@ training_args = TrainingArguments(
     output_dir="./results",
     evaluation_strategy="epoch",
     save_strategy="epoch",
-    save_total_limit=1,
+    save_total_limit=3,
     learning_rate=2e-5,
     per_device_train_batch_size=16,
     per_device_eval_batch_size=16,
-    num_train_epochs=1,
+    num_train_epochs=1,  # epoch数
     weight_decay=0.01,
     load_best_model_at_end=True  # 終了時に一番良かったモデルを使う
 )
