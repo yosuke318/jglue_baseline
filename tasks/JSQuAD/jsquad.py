@@ -24,9 +24,14 @@ device = "cuda:0" if torch.cuda.is_available() else "cpu"
 model = AutoModelForQuestionAnswering.from_pretrained("roberta-base").to(device)  # GPUにのせる
 
 
-# 前処理の関数(preprocess_functionを使用：https://huggingface.co/docs/transformers/v4.19.2/en/tasks/question_answering)
-# note:QAタスクの場合、正解の文字の始まりと終わりの位置を示す必要がある
+
 def preprocess_function(examples):
+    """
+    # 前処理の関数(preprocess_functionを使用：https://huggingface.co/docs/transformers/v4.19.2/en/tasks/question_answering)
+    # note:QAタスクの場合、正解の文字の始まりと終わりの位置を示す必要がある
+    :param examples:
+    :return: inputs["start_positions"], inputs["end_positions"]
+    """
     questions = [q.strip() for q in examples["question"]]
     inputs = tokenizer(
         questions,
