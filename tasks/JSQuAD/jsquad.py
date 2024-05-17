@@ -19,9 +19,9 @@ dataset = DatasetDict({
     "validation": ds_valid,
 })
 
-# デバイス判定
+# GPUが使えるか判定(できれば実行環境はGPUが良い)
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
-model = AutoModelForQuestionAnswering.from_pretrained("roberta-base").to(device)
+model = AutoModelForQuestionAnswering.from_pretrained("roberta-base").to(device)  # GPUにのせる
 
 
 # 前処理の関数(preprocess_functionを使用：https://huggingface.co/docs/transformers/v4.19.2/en/tasks/question_answering)
