@@ -5,6 +5,7 @@ import torch
 import pandas as pd
 from datasets import Dataset, DatasetDict, load_metric
 import numpy as np
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 from tasks.marcja.load_marcja_data import load_marc_data
 
@@ -34,7 +35,7 @@ dataset.map(lambda example: {'label': 1 if example['label'] == 'positive' else 0
 
 # ロベルトのトークンナイザー
 # tokenizer = AutoTokenizer.from_pretrained('tohoku-nlp/bert-base-japanese-whole-word-masking')
-tokenizer = AutoTokenizer.from_pretrained('distilbert-base-uncased')
+tokenizer = AutoTokenizer.from_pretrained('tohoku-nlp/bert-base-japanese')
 
 
 def tokenize_function(examples):
@@ -49,7 +50,7 @@ small_test_ds = tokenized_datasets['test'].shuffle(seed=51)
 # ロベルト
 # GPUが使えるか判定(できれば実行環境はGPUが良い)
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
-model = AutoModelForSequenceClassification.from_pretrained('distilbert-base-uncased',
+model = AutoModelForSequenceClassification.from_pretrained('tohoku-nlp/bert-base-japanese',
                                                            num_labels=2).to(device)
 
 metric = load_metric('accuracy')
@@ -92,5 +93,17 @@ predicted_labels = outputs.predictions.argmax(axis=1)
 
 # 予測結果を元のDataFrameに結合
 df_test["predicted_label"] = predicted_labels
+
+true_labels = df_test["label"].tolist()
+
+accuracy = accuracy_score(true_labels, predicted_labels)
+precision = precision_score(true_labels, predicted_labels, average='weighted')
+recall = recall_score(true_labels, predicted_labels, average='weighted')
+f1 = f1_score(true_labels, predicted_labels, average='weighted')
+
+df_test["accuracy"] = accuracy
+df_test["precision"] = precision
+df_test["recall"] = recall
+df_test["f1"] = f1
 
 df_test.to_csv('./marcja.csv')
