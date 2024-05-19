@@ -9,7 +9,7 @@ from datasets import Dataset, DatasetDict
 tokenizer = AutoTokenizer.from_pretrained("roberta-base")
 
 train = pd.read_json('./new_training.json')
-valid = pd.read_json('./new_training.json')
+valid = pd.read_json('./new_validation.json')
 
 ds_train = Dataset.from_pandas(train)
 ds_valid = Dataset.from_pandas(valid)
