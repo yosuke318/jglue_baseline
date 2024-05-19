@@ -33,8 +33,9 @@ dataset = DatasetDict({
 
 dataset.map(lambda example: {'label': 1 if example['label'] == 'positive' else 0})
 
-# ロベルトのトークンナイザー
+# 東北大のトークンナイザー
 # tokenizer = AutoTokenizer.from_pretrained('tohoku-nlp/bert-base-japanese-whole-word-masking')
+# https://huggingface.co/tohoku-nlp/bert-base-japanese
 tokenizer = AutoTokenizer.from_pretrained('tohoku-nlp/bert-base-japanese')
 
 
