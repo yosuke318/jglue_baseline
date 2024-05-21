@@ -1,3 +1,4 @@
+import git
 from transformers import (AutoTokenizer, TrainingArguments, AutoModelForQuestionAnswering,
                           Trainer, EarlyStoppingCallback, default_data_collator,
                           pipeline)
@@ -8,8 +9,8 @@ from datasets import Dataset, DatasetDict
 
 tokenizer = AutoTokenizer.from_pretrained("roberta-base")
 
-train = pd.read_json('./new_training.json')
-valid = pd.read_json('./new_validation.json')
+train = pd.read_json('./tasks/JSQuAD/new_training.json')
+valid = pd.read_json('./tasks/JSQuAD/new_validation.json')
 
 ds_train = Dataset.from_pandas(train)
 ds_valid = Dataset.from_pandas(valid)
@@ -86,8 +87,10 @@ def preprocess_function(examples):
 # 変換
 tokenized_data = dataset.map(preprocess_function, batched=True)
 
+result_path = './tasks/JSQuAD/result'
+
 training_args = TrainingArguments(
-    output_dir="./results",
+    output_dir=result_path,
     evaluation_strategy="epoch",
     save_strategy="epoch",
     save_total_limit=3,
@@ -125,3 +128,14 @@ result = pipe(question="多国籍企業において、防衛で有名なのは�
               align_to_words=False)
 
 print(result)
+
+model_path = './tasks/JSQuAD/models'
+
+# 現在のリポジトリのコミットIDを取得
+repo = git.Repo(search_parent_directories=True)
+commit_id = repo.head.object.hexsha
+
+# モデルを保存するパス（任意のパスでOK）
+save_path = f"{model_path}/jsquad_model_{commit_id}.pt"
+
+torch.save(model.state_dict(), save_path)
