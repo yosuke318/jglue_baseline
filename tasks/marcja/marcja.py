@@ -1,6 +1,7 @@
 from transformers import (AutoTokenizer, TrainingArguments, AutoModelForSequenceClassification,
-                          Trainer)
+                          Trainer, EarlyStoppingCallback)
 import torch
+import os
 import git
 import pandas as pd
 from datasets import Dataset, DatasetDict, load_metric
@@ -64,7 +65,7 @@ def compute_metrics(eval_pred):
 
 
 training_args = TrainingArguments(
-    output_dir='./result',
+    output_dir='./tasks/marcja/result',
     evaluation_strategy='epoch',
     auto_find_batch_size=True,  # 自動で調整
     # per_device_train_batch_size=16,
@@ -72,7 +73,7 @@ training_args = TrainingArguments(
     learning_rate=5e-05,
     num_train_epochs=1,
     warmup_ratio=0.1,
-    save_steps=1
+    save_steps=1,
 )
 
 trainer = Trainer(
@@ -80,7 +81,7 @@ trainer = Trainer(
     args=training_args,
     train_dataset=small_train_ds,
     eval_dataset=small_valid_ds,
-    compute_metrics=compute_metrics
+    compute_metrics=compute_metrics,
 )
 
 trainer.train()
@@ -107,13 +108,18 @@ df_test["precision"] = precision
 df_test["recall"] = recall
 df_test["f1"] = f1
 
-df_test.to_csv('./marcja.csv')
+current_directory = os.path.dirname(os.path.abspath(__file__))
+
+model_path = os.path.join(current_directory, 'models')
+
+os.makedirs(model_path, exist_ok=True)
 
 # 現在のリポジトリのコミットIDを取得
 repo = git.Repo(search_parent_directories=True)
 commit_id = repo.head.object.hexsha
 
-# モデルを保存するパス
-save_path = f"./marcja_model_{commit_id}.pt"
+# モデルを保存するパス（任意のパスでOK）
+save_path = f"./{model_path}/marcja_model_{commit_id}.pt"
+df_test.to_csv(f'./tasls/marcja/result/marcja_{commit_id}.csv')
 
 torch.save(model.state_dict(), save_path)

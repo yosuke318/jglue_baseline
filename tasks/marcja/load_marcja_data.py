@@ -23,7 +23,7 @@ train_dataset, valid_dataset = load_marc_data()
 
 # データ確認用
 df = pd.DataFrame(train_dataset)
-df.to_csv('ds_train.csv', index=False)
+df.to_csv('./tasks/marcja/ds_train.csv', index=False)
 
 df = pd.DataFrame(valid_dataset)
-df.to_csv('ds_valid.csv', index=False)
+df.to_csv('./tasks/marcja/ds_valid.csv', index=False)
