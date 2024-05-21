@@ -1,7 +1,7 @@
 from transformers import (AutoTokenizer, TrainingArguments, AutoModelForSequenceClassification,
-                          Trainer, EarlyStoppingCallback, default_data_collator,
-                          pipeline)
+                          Trainer)
 import torch
+import git
 import pandas as pd
 from datasets import Dataset, DatasetDict, load_metric
 import numpy as np
@@ -18,7 +18,7 @@ df_valid = pd.DataFrame(valid_dataset)
 # 最初の100行を抽出
 df_train = df_train.head(80)
 df_valid = df_valid.head(20)
-df_test = df_valid.tail(20)
+df_test = df_valid.tail(20)  # testデータはvalidから取得する
 
 # dfをdataset型へ戻す
 ds_train = Dataset.from_pandas(df_train)
@@ -48,7 +48,7 @@ small_train_ds = tokenized_datasets['train'].shuffle(seed=51)  # シャッフル
 small_valid_ds = tokenized_datasets['valid'].shuffle(seed=51)
 small_test_ds = tokenized_datasets['test'].shuffle(seed=51)
 
-# ロベルト
+# 東北大
 # GPUが使えるか判定(できれば実行環境はGPUが良い)
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 model = AutoModelForSequenceClassification.from_pretrained('tohoku-nlp/bert-base-japanese',
@@ -66,7 +66,7 @@ def compute_metrics(eval_pred):
 training_args = TrainingArguments(
     output_dir='./result',
     evaluation_strategy='epoch',
-    auto_find_batch_size=True,
+    auto_find_batch_size=True,  # 自動で調整
     # per_device_train_batch_size=16,
     # per_device_eval_batch_size=16,
     learning_rate=5e-05,
@@ -92,7 +92,7 @@ test_tokenized = tokenizer(df_test_list, return_tensors="pt", padding=True, trun
 outputs = trainer.predict(test_dataset=small_test_ds)
 predicted_labels = outputs.predictions.argmax(axis=1)
 
-# 予測結果を元のDataFrameに結合
+# 予測結果をデータフレームに追加して保存
 df_test["predicted_label"] = predicted_labels
 
 true_labels = df_test["label"].tolist()
@@ -108,3 +108,12 @@ df_test["recall"] = recall
 df_test["f1"] = f1
 
 df_test.to_csv('./marcja.csv')
+
+# 現在のリポジトリのコミットIDを取得
+repo = git.Repo(search_parent_directories=True)
+commit_id = repo.head.object.hexsha
+
+# モデルを保存するパス
+save_path = f"./marcja_model_{commit_id}.pt"
+
+torch.save(model.state_dict(), save_path)
