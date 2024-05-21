@@ -22,4 +22,11 @@
             <td><a href="https://github.com/yahoojapan/JGLUE/tree/main/datasets/jsquad-v1.1">ここから一部抜粋</a></td>
         </tr>
     </tbody>
+    <tbody>
+        <tr>
+            <td>東北大</td>
+            <td>marcja</td>
+            <td><a href="https://huggingface.co/datasets/shunk031/JGLUE">ここから一部抜粋</a></td>
+        </tr>
+    </tbody>
 </table>
