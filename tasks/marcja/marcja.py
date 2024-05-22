@@ -1,7 +1,7 @@
 from transformers import (AutoTokenizer, TrainingArguments, AutoModelForSequenceClassification,
                           Trainer, EarlyStoppingCallback)
 import torch
-import os
+from transformers.trainer_utils import set_seed
 import git
 import pandas as pd
 from datasets import Dataset, DatasetDict, load_metric
@@ -10,6 +10,10 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 
 from tasks.marcja.load_marcja_data import load_marc_data
 
+# 乱数シードを42に固定
+set_seed(42)
+
+# Hugging Face Hub上のllm-book/JGLUEのリポジトリからmarcjaのデータを読み込む
 train_dataset, valid_dataset = load_marc_data()
 
 # データセットをDataFrameに変換

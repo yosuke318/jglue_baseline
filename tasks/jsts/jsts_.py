@@ -1,17 +1,17 @@
 from transformers.trainer_utils import set_seed
-from transformers import BatchEncoding, AutoTokenizer
+from transformers import (BatchEncoding, AutoTokenizer, Trainer,
+                          TrainingArguments, DataCollatorWithPadding, AutoModelForSequenceClassification)
 
 import numpy as np
 from scipy.stats import pearsonr, spearmanr
 
-# 乱数シードを42に固定
-set_seed(42)
-
 from pprint import pprint
 from datasets import load_dataset
 
-# Hugging Face Hub上のllm-book/JGLUEのリポジトリから
-# JSTSのデータを読み込む
+# 乱数シードを42に固定
+set_seed(42)
+
+# Hugging Face Hub上のllm-book/JGLUEのリポジトリからJSTSのデータを読み込む
 train_dataset = load_dataset(
     "shunk031/JGLUE", name="JSTS", split="train"
 )
@@ -35,12 +35,13 @@ def preprocess_text_pair_classification(
         example["sentence1"], example["sentence2"], max_length=128
     )
 
-    # 以降で使うモデルのBertForSequenceClassificationのforwardメソッドが
+    # BertForSequenceClassificationのforwardメソッドが
     # 受け取るラベルの引数名に合わせて"labels"をキーにする
     encoded_example["labels"] = example["label"]
     return encoded_example
 
-# encodeする
+
+# train, valid, testデータをencodeする
 encoded_train_dataset = train_dataset.map(
     preprocess_text_pair_classification,
     remove_columns=train_dataset.column_names,
@@ -52,16 +53,11 @@ encoded_valid_dataset = valid_dataset.map(
 )
 
 
-from transformers import DataCollatorWithPadding
-
 # ミニバッチ構築
 data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
-
 batch_inputs = data_collator(encoded_train_dataset[0:4])
 
-
-from transformers import AutoModelForSequenceClassification
 
 transformers_model_name = "cl-tohoku/bert-base-japanese-v3"
 
@@ -70,9 +66,6 @@ model = AutoModelForSequenceClassification.from_pretrained(
     num_labels=1,
     problem_type="regression",
 )
-
-
-from transformers import TrainingArguments
 
 result_path = './tasks/jsts/result'
 
@@ -94,10 +87,10 @@ training_args = TrainingArguments(
 )
 
 
-def compute_correlation_metrics(
-    eval_pred: tuple[np.ndarray, np.ndarray]
-) -> dict[str, float]:
-    """予測スコアと正解スコアから各種相関係数を計算"""
+def compute_correlation_metrics(eval_pred: tuple[np.ndarray, np.ndarray]) -> dict[str, float]:
+    """
+    予測スコアと正解スコアからピアソン相関係数とスピアマン相関係数を計算
+    """
     predictions, labels = eval_pred
     predictions = predictions.squeeze(1)
     return {
@@ -105,8 +98,6 @@ def compute_correlation_metrics(
         "spearmanr": spearmanr(predictions, labels).statistic,
     }
 
-
-from transformers import Trainer
 
 trainer = Trainer(
     model=model,

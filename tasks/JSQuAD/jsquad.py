@@ -1,4 +1,5 @@
 import git
+from transformers.trainer_utils import set_seed
 from transformers import (AutoTokenizer, TrainingArguments, AutoModelForQuestionAnswering,
                           Trainer, EarlyStoppingCallback, default_data_collator,
                           pipeline)
@@ -6,6 +7,9 @@ import torch
 import pandas as pd
 
 from datasets import Dataset, DatasetDict
+
+# 乱数シードを42に固定
+set_seed(42)
 
 tokenizer = AutoTokenizer.from_pretrained("roberta-base")
 
@@ -23,7 +27,6 @@ dataset = DatasetDict({
 # GPUが使えるか判定(できれば実行環境はGPUが良い)
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 model = AutoModelForQuestionAnswering.from_pretrained("roberta-base").to(device)  # GPUにのせる
-
 
 
 def preprocess_function(examples):
