@@ -1,3 +1,4 @@
+import pandas as pd
 from transformers.trainer_utils import set_seed
 from transformers import (BatchEncoding, AutoTokenizer, Trainer,
                           TrainingArguments, DataCollatorWithPadding, AutoModelForSequenceClassification)
@@ -6,7 +7,7 @@ import numpy as np
 from scipy.stats import pearsonr, spearmanr
 
 from pprint import pprint
-from datasets import load_dataset
+from datasets import load_dataset, Dataset
 
 # 乱数シードを42に固定
 set_seed(42)
@@ -18,6 +19,20 @@ train_dataset = load_dataset(
 valid_dataset = load_dataset(
     "shunk031/JGLUE", name="JSTS", split="validation"
 )
+
+# データセットをDataFrameに変換
+df_train = pd.DataFrame(train_dataset)
+df_valid = pd.DataFrame(valid_dataset)
+
+# 最初の100行を抽出
+df_train = df_train.head(80)
+df_valid = df_valid.head(20)
+df_test = df_valid.tail(20)  # testデータはvalidから取得する
+
+# dfをdataset型へ戻す
+ds_train = Dataset.from_pandas(df_train)
+ds_valid = Dataset.from_pandas(df_valid)
+ds_test = Dataset.from_pandas(df_test)
 
 # Hugging Face Hub上のモデル名を指定
 model_name = "cl-tohoku/bert-base-japanese-v3"
@@ -42,14 +57,19 @@ def preprocess_text_pair_classification(
 
 
 # train, valid, testデータをencodeする
-encoded_train_dataset = train_dataset.map(
+encoded_train_dataset = ds_train.map(
     preprocess_text_pair_classification,
-    remove_columns=train_dataset.column_names,
+    remove_columns=ds_train.column_names,
 )
 
-encoded_valid_dataset = valid_dataset.map(
+encoded_valid_dataset = ds_valid.map(
     preprocess_text_pair_classification,
-    remove_columns=valid_dataset.column_names,
+    remove_columns=ds_valid.column_names,
+)
+
+encoded_test_dataset = ds_test.map(
+    preprocess_text_pair_classification,
+    remove_columns=ds_test.column_names,
 )
 
 
@@ -111,6 +131,6 @@ trainer.train()
 
 
 # 検証セットでモデルを評価
-eval_metrics = trainer.evaluate(encoded_valid_dataset)
+eval_metrics = trainer.evaluate(encoded_test_dataset)
 pprint(eval_metrics)
 
