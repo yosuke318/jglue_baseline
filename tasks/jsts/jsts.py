@@ -142,6 +142,5 @@ commit_id = repo.head.object.hexsha
 # モデルを保存するパス
 save_path = f"models/roberta_sequence_classification_model_{commit_id}.pt"
 
-# モデルを初期化して保存
-model = RobertaForSequenceClassification.from_pretrained('roberta-base', num_labels=1)
+# モデルを保存
 torch.save(model.state_dict(), save_path)
