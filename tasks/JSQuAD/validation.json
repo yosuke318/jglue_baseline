@@ -1,0 +1,244 @@
+{
+  "valid": [
+    {
+      "title": "多国籍企業",
+      "paragraphs": [
+        {
+          "qas": [
+            {
+              "question": "公企業や地域に偏りのあるものも紹介している。4大会計事務所も有名。では、防衛ではなに",
+              "id": "a95156p4q0",
+              "answers": [
+                {
+                  "text": "ブラックウォーターUSA",
+                  "answer_start": 49
+                },
+                {
+                  "text": "ブラックウォーターUSA",
+                  "answer_start": 49
+                },
+                {
+                  "text": "ブラックウォーターUSA",
+                  "answer_start": 49
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "防衛関連の多国籍企業は？",
+              "id": "a95156p4q1",
+              "answers": [
+                {
+                  "text": "ブラックウォーターUSA",
+                  "answer_start": 49
+                },
+                {
+                  "text": "ブラックウォーターUSA",
+                  "answer_start": 49
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "4大会計事務所を一つ挙げよ",
+              "id": "a95156p4q2",
+              "answers": [
+                {
+                  "text": "ブラックウォーターUSA",
+                  "answer_start": 49
+                },
+                {
+                  "text": "ブラックウォーターUSA",
+                  "answer_start": 49
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "多国籍企業において、防衛で有名なのはなにUSA？",
+              "id": "a95156p4q3",
+              "answers": [
+                {
+                  "text": "ブラックウォーターUSA",
+                  "answer_start": 49
+                },
+                {
+                  "text": "ブラックウォーター",
+                  "answer_start": 49
+                },
+                {
+                  "text": "ブラックウォーターUSA",
+                  "answer_start": 49
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "多国籍企業 [SEP] 公企業や地域に偏りのあるものも紹介している。4大会計事務所も有名。防衛ではブラックウォーターUSA。"
+        },
+        {
+          "qas": [
+            {
+              "question": "国際銀行間通信協会ならびに国際決済機関のクリアストリームはどことの企業体？",
+              "id": "a95156p5q0",
+              "answers": [
+                {
+                  "text": "ユーロクリア",
+                  "answer_start": 41
+                },
+                {
+                  "text": "ユーロクリア",
+                  "answer_start": 41
+                },
+                {
+                  "text": "ユーロクリア",
+                  "answer_start": 41
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "多国籍企業を一つ挙げよ",
+              "id": "a95156p5q1",
+              "answers": [
+                {
+                  "text": "ファンド・オブ・ファンズ",
+                  "answer_start": 55
+                },
+                {
+                  "text": "クリアストリーム",
+                  "answer_start": 32
+                },
+                {
+                  "text": "クリアストリーム",
+                  "answer_start": 32
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "・ファンドとヘッジファンドをトラスト化しているのは？",
+              "id": "a95156p5q2",
+              "answers": [
+                {
+                  "text": "ファンド・オブ・ファンズ",
+                  "answer_start": 55
+                },
+                {
+                  "text": "ファンド・オブ・ファンズ",
+                  "answer_start": 55
+                },
+                {
+                  "text": "ファンド・オブ・ファンズ",
+                  "answer_start": 55
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "国際銀行間通信協会ならびに国際決済機関の何と何も企業体である",
+              "id": "a95156p5q3",
+              "answers": [
+                {
+                  "text": "クリアストリームとユーロクリア",
+                  "answer_start": 32
+                },
+                {
+                  "text": "クリアストリームとユーロクリア",
+                  "answer_start": 32
+                },
+                {
+                  "text": "クリアストリームとユーロクリア",
+                  "answer_start": 32
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "多国籍企業 [SEP] 国際銀行間通信協会ならびに国際決済機関のクリアストリームとユーロクリアも企業体である。ファンド・オブ・ファンズがミューチュアル・ファンドとヘッジファンドをトラスト化している。プライベート・エクイティ・ファンドは凡そ以下の企業体に属する。"
+        },
+        {
+          "qas": [
+            {
+              "question": "ゼネコンはどの国特有の形態か",
+              "id": "a95156p6q0",
+              "answers": [
+                {
+                  "text": "日本",
+                  "answer_start": 17
+                },
+                {
+                  "text": "日本",
+                  "answer_start": 17
+                },
+                {
+                  "text": "日本",
+                  "answer_start": 17
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "多国籍企業においてゼネコンはどこの国特有の形態であるか？",
+              "id": "a95156p6q1",
+              "answers": [
+                {
+                  "text": "日本",
+                  "answer_start": 17
+                },
+                {
+                  "text": "日本",
+                  "answer_start": 17
+                },
+                {
+                  "text": "日本",
+                  "answer_start": 17
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "多国籍企業を一つ挙げよ",
+              "id": "a95156p6q2",
+              "answers": [
+                {
+                  "text": "ラファージュホルシム",
+                  "answer_start": 34
+                },
+                {
+                  "text": "イタルチェメンティ",
+                  "answer_start": 45
+                },
+                {
+                  "text": "ラファージュホルシム",
+                  "answer_start": 34
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "ゼネコンはどの国の特有の形態か？",
+              "id": "a95156p6q3",
+              "answers": [
+                {
+                  "text": "日本",
+                  "answer_start": 17
+                },
+                {
+                  "text": "日本",
+                  "answer_start": 17
+                },
+                {
+                  "text": "日本",
+                  "answer_start": 17
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "多国籍企業 [SEP] ゼネコンは日本特有の形態。セメントメジャーにラファージュホルシムやイタルチェメンティ。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1482 @@
+{
+  "train": [
+    {
+      "title": "梅雨",
+      "paragraphs": [
+        {
+          "qas": [
+            {
+              "question": "日本で梅雨がないのは北海道とどこか。",
+              "id": "a10336p0q0",
+              "answers": [
+                {
+                  "text": "小笠原諸島",
+                  "answer_start": 25
+                },
+                {
+                  "text": "小笠原諸島を除く日本",
+                  "answer_start": 25
+                },
+                {
+                  "text": "小笠原諸島",
+                  "answer_start": 25
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "梅雨とは何季の一種か?",
+              "id": "a10336p0q1",
+              "answers": [
+                {
+                  "text": "雨季",
+                  "answer_start": 121
+                },
+                {
+                  "text": "雨季",
+                  "answer_start": 121
+                },
+                {
+                  "text": "雨季",
+                  "answer_start": 121
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "梅雨は、世界的にどのあたりで見られる気象ですか？",
+              "id": "a10336p0q2",
+              "answers": [
+                {
+                  "text": "東アジアの広範囲",
+                  "answer_start": 71
+                },
+                {
+                  "text": "東アジアの広範囲",
+                  "answer_start": 71
+                },
+                {
+                  "text": "東アジア",
+                  "answer_start": 71
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "梅雨がみられるのはどの期間？",
+              "id": "a10336p0q3",
+              "answers": [
+                {
+                  "text": "5月から7月にかけて",
+                  "answer_start": 96
+                },
+                {
+                  "text": "5月から7月にかけて",
+                  "answer_start": 96
+                },
+                {
+                  "text": "5月から7月",
+                  "answer_start": 96
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 梅雨（つゆ、ばいう）は、北海道と小笠原諸島を除く日本、朝鮮半島南部、中国の南部から長江流域にかけての沿海部、および台湾など、東アジアの広範囲においてみられる特有の気象現象で、5月から7月にかけて来る曇りや雨の多い期間のこと。雨季の一種である。"
+        },
+        {
+          "qas": [
+            {
+              "question": "入梅は何の目安の時期か？",
+              "id": "a10336p1q0",
+              "answers": [
+                {
+                  "text": "田植えの時期の目安",
+                  "answer_start": 128
+                },
+                {
+                  "text": "田植えの時期",
+                  "answer_start": 128
+                },
+                {
+                  "text": "春の終わりであるとともに夏の始まり（初夏）",
+                  "answer_start": 50
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "梅雨明けの別名を何というか。",
+              "id": "a10336p1q1",
+              "answers": [
+                {
+                  "text": "出梅（しゅつばい）",
+                  "answer_start": 161
+                },
+                {
+                  "text": "出梅",
+                  "answer_start": 161
+                },
+                {
+                  "text": "出梅（しゅつばい）",
+                  "answer_start": 161
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 梅雨の時期が始まることを梅雨入りや入梅（にゅうばい）といい、社会通念上・気象学上は春の終わりであるとともに夏の始まり（初夏）とされる。なお、日本の雑節の1つに入梅（6月11日頃）があり、暦の上ではこの日を入梅とするが、これは水を必要とする田植えの時期の目安とされている。また、梅雨が終わることを梅雨明けや出梅（しゅつばい）といい、これをもって本格的な夏（盛夏）の到来とすることが多い。ほとんどの地域では、気象当局が梅雨入りや梅雨明けの発表を行っている。"
+        },
+        {
+          "qas": [
+            {
+              "question": "シベリアから中国大陸にかけての広範囲を冷たく乾燥させる気団は？7",
+              "id": "a10336p10q0",
+              "answers": [
+                {
+                  "text": "シベリア気団",
+                  "answer_start": 39
+                },
+                {
+                  "text": "シベリア気団",
+                  "answer_start": 39
+                },
+                {
+                  "text": "シベリア気団",
+                  "answer_start": 39
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "冬の間、シベリア気団が覆っている範囲はどこか？",
+              "id": "a10336p10q1",
+              "answers": [
+                {
+                  "text": "シベリアから中国大陸",
+                  "answer_start": 13
+                },
+                {
+                  "text": "シベリアから中国大陸にかけて",
+                  "answer_start": 13
+                },
+                {
+                  "text": "シベリアから中国大陸",
+                  "answer_start": 13
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "冬の間、シベリアから中国大陸にかけての広範囲を覆うものは何気団か",
+              "id": "a10336p10q2",
+              "answers": [
+                {
+                  "text": "シベリア気団",
+                  "answer_start": 39
+                },
+                {
+                  "text": "シベリア気団",
+                  "answer_start": 39
+                },
+                {
+                  "text": "シベリア気団",
+                  "answer_start": 39
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "冬の間、シベリアから中国大陸にかけての広範囲を覆う冷たく乾燥した気団は?",
+              "id": "a10336p10q3",
+              "answers": [
+                {
+                  "text": "シベリア気団",
+                  "answer_start": 39
+                },
+                {
+                  "text": "シベリア気団",
+                  "answer_start": 39
+                },
+                {
+                  "text": "シベリア気団",
+                  "answer_start": 39
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "冬の間、シベリアから中国大陸にかけた広範囲に漂い、しばしば軟化して日本の日本海側に大雪をもたらす気団は何気団？",
+              "id": "a10336p10q4",
+              "answers": [
+                {
+                  "text": "シベリア",
+                  "answer_start": 13
+                },
+                {
+                  "text": "シベリア気団",
+                  "answer_start": 39
+                },
+                {
+                  "text": "シベリア気団",
+                  "answer_start": 39
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 冬の間、シベリアから中国大陸にかけての広範囲を冷たく乾燥したシベリア気団が覆っている。シベリア気団はしばしば南下して寒波をもたらし、日本の日本海側に大雪を降らせるが、チベット高原では高い山脈が邪魔して気団がそれ以上南下できない。そのチベット高原の南側、インド-フィリピンにかけての上空を亜熱帯ジェット気流が流れる。"
+        },
+        {
+          "qas": [
+            {
+              "question": "春になると精力を強め、日本や朝鮮半島などに移動性高気圧を放出し、梅雨の原因となる気団は何気団？",
+              "id": "a10336p11q0",
+              "answers": [
+                {
+                  "text": "揚子江",
+                  "answer_start": 65
+                },
+                {
+                  "text": "揚子江気団",
+                  "answer_start": 65
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "高気圧の間にできた低気圧とともに春の移り変わりやすい天候を作り出している気団は？",
+              "id": "a10336p11q1",
+              "answers": [
+                {
+                  "text": "揚子江気団",
+                  "answer_start": 65
+                },
+                {
+                  "text": "揚子江気団",
+                  "answer_start": 65
+                },
+                {
+                  "text": "揚子江気団",
+                  "answer_start": 65
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "冬が終わり春が近づくにつれ、シベリア気団はどのように変化するか？",
+              "id": "a10336p11q2",
+              "answers": [
+                {
+                  "text": "勢力が弱くなり、次第に北上していく。",
+                  "answer_start": 30
+                },
+                {
+                  "text": "勢力が弱くなり、次第に北上していく",
+                  "answer_start": 30
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "シベリア気団の勢力が弱くなった後、現れるものは何気団か",
+              "id": "a10336p11q3",
+              "answers": [
+                {
+                  "text": "揚子江気団",
+                  "answer_start": 65
+                },
+                {
+                  "text": "揚子江気団",
+                  "answer_start": 65
+                },
+                {
+                  "text": "揚子江気団",
+                  "answer_start": 65
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "冬が終わり春が近づくにつれ、勢力が弱くなり、次第に北上していく気団は?",
+              "id": "a10336p11q4",
+              "answers": [
+                {
+                  "text": "シベリア気団",
+                  "answer_start": 23
+                },
+                {
+                  "text": "シベリア気団",
+                  "answer_start": 23
+                },
+                {
+                  "text": "シベリア気団",
+                  "answer_start": 23
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 冬が終わり春が近づくにつれ、シベリア気団は勢力が弱くなり、次第に北上していく。代わって中国大陸には暖かく乾燥した揚子江気団ができ始め、勢力を強めていく。春になると、揚子江気団は東の日本列島や朝鮮半島などに移動性高気圧を放出し、これが偏西風に乗って東に進み、高気圧の間にできた低気圧とともに春の移り変わりやすい天候を作り出している。"
+        },
+        {
+          "qas": [
+            {
+              "question": "子江気団と熱帯モンスーン気団が衝突してできる前線は？",
+              "id": "a10336p12q0",
+              "answers": [
+                {
+                  "text": "梅雨前線",
+                  "answer_start": 162
+                },
+                {
+                  "text": "梅雨前線",
+                  "answer_start": 162
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "梅雨前線を形成するのは揚子江気団と何気団でしょうか？",
+              "id": "a10336p12q1",
+              "answers": [
+                {
+                  "text": "熱帯モンスーン",
+                  "answer_start": 34
+                },
+                {
+                  "text": "熱帯モンスーン気団",
+                  "answer_start": 34
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "春が終わりに差し掛かるにつれて、南シナ海付近にある勢力を増し北上してくる気団は?",
+              "id": "a10336p12q2",
+              "answers": [
+                {
+                  "text": "熱帯モンスーン気団",
+                  "answer_start": 34
+                },
+                {
+                  "text": "熱帯モンスーン気団",
+                  "answer_start": 34
+                },
+                {
+                  "text": "熱帯モンスーン気団",
+                  "answer_start": 34
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "春が終わりに差し掛かるにつれて、南シナ海付近にできる気団は",
+              "id": "a10336p12q3",
+              "answers": [
+                {
+                  "text": "揚子江気団",
+                  "answer_start": 60
+                },
+                {
+                  "text": "熱帯モンスーン気団",
+                  "answer_start": 34
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "春が終わりに差し掛かる頃に南シナ海付近にある気団は何か？",
+              "id": "a10336p12q4",
+              "answers": [
+                {
+                  "text": "熱帯モンスーン気団",
+                  "answer_start": 34
+                },
+                {
+                  "text": "熱帯モンスーン気団",
+                  "answer_start": 34
+                },
+                {
+                  "text": "熱帯モンスーン",
+                  "answer_start": 34
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 春が終わりに差し掛かるにつれて、南シナ海付近にある熱帯モンスーン気団が勢力を増し北上してくる。すると、揚子江気団と熱帯モンスーン気団が衝突し始める。地上天気図でみると、揚子江気団からできた高気圧と熱帯モンスーン気団からできた高気圧が南シナ海上でせめぎあい、その間に前線ができていることがわかる。これが最初の梅雨前線である。"
+        },
+        {
+          "qas": [
+            {
+              "question": "梅雨前線が南西諸島に影響を及ぼし始めるのは通常何月ごろ？",
+              "id": "a10336p13q0",
+              "answers": [
+                {
+                  "text": "5月上旬",
+                  "answer_start": 9
+                },
+                {
+                  "text": "5月上旬",
+                  "answer_start": 9
+                },
+                {
+                  "text": "5月中旬",
+                  "answer_start": 34
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "南西諸島も梅雨前線の影響を受け始めるにはいつか？",
+              "id": "a10336p13q1",
+              "answers": [
+                {
+                  "text": "5月上旬",
+                  "answer_start": 9
+                },
+                {
+                  "text": "5月中旬",
+                  "answer_start": 34
+                },
+                {
+                  "text": "5月上旬",
+                  "answer_start": 9
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "5月上旬には梅雨前線の影響を受け始める地域はどこか？",
+              "id": "a10336p13q2",
+              "answers": [
+                {
+                  "text": "南西諸島",
+                  "answer_start": 15
+                },
+                {
+                  "text": "南西諸島",
+                  "answer_start": 15
+                },
+                {
+                  "text": "南西諸島",
+                  "answer_start": 15
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "南西諸島が梅雨前線の影響を受け始めるのはいつか",
+              "id": "a10336p13q3",
+              "answers": [
+                {
+                  "text": "5月上旬",
+                  "answer_start": 9
+                },
+                {
+                  "text": "5月上旬",
+                  "answer_start": 9
+                },
+                {
+                  "text": "5月上旬",
+                  "answer_start": 9
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "5月上旬には南西諸島が影響を受け始める前線は?",
+              "id": "a10336p13q4",
+              "answers": [
+                {
+                  "text": "梅雨前線",
+                  "answer_start": 20
+                },
+                {
+                  "text": "梅雨前線",
+                  "answer_start": 20
+                },
+                {
+                  "text": "梅雨前線",
+                  "answer_start": 20
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 5月上旬には南西諸島も梅雨前線の影響を受け始める。5月中旬ごろになると、梅雨前線ははっきりと天気図上に現れるようになり、華南や南西諸島付近に停滞する。"
+        },
+        {
+          "qas": [
+            {
+              "question": "亜熱帯ジェット気流が北上し、チベット高原に差し掛かるのはいつか？",
+              "id": "a10336p14q0",
+              "answers": [
+                {
+                  "text": "5月",
+                  "answer_start": 18
+                },
+                {
+                  "text": "5月",
+                  "answer_start": 18
+                },
+                {
+                  "text": "5月ごろ",
+                  "answer_start": 18
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "初夏に入った5月ごろ、北上する気流は何か？",
+              "id": "a10336p14q1",
+              "answers": [
+                {
+                  "text": "亜熱帯ジェット気流",
+                  "answer_start": 23
+                },
+                {
+                  "text": "亜熱帯ジェット気流",
+                  "answer_start": 23
+                },
+                {
+                  "text": "亜熱帯ジェット気流",
+                  "answer_start": 23
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "亜熱帯ジェット気流が北上するのはいつか",
+              "id": "a10336p14q2",
+              "answers": [
+                {
+                  "text": "初夏に入った5月ごろ",
+                  "answer_start": 12
+                },
+                {
+                  "text": "5月",
+                  "answer_start": 18
+                },
+                {
+                  "text": "5月ごろ",
+                  "answer_start": 18
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "初夏に入った5月ごろ北上し、チベット高原に差し掛かる気流は?",
+              "id": "a10336p14q3",
+              "answers": [
+                {
+                  "text": "亜熱帯ジェット気流",
+                  "answer_start": 23
+                },
+                {
+                  "text": "亜熱帯ジェット気流",
+                  "answer_start": 23
+                },
+                {
+                  "text": "亜熱帯ジェット気流",
+                  "answer_start": 23
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "初夏に入った5月ごろに、チベット高原に差し掛かり、高原を境に二手に分かれる気流は何気流？",
+              "id": "a10336p14q4",
+              "answers": [
+                {
+                  "text": "亜熱帯ジェット",
+                  "answer_start": 23
+                },
+                {
+                  "text": "亜熱帯ジェット気流",
+                  "answer_start": 23
+                },
+                {
+                  "text": "亜熱帯ジェット気流",
+                  "answer_start": 23
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 一方、初夏に入った5月ごろ、亜熱帯ジェット気流も北上し、チベット高原に差し掛かる。ただし、チベット高原は上空を流れる亜熱帯ジェット気流よりもさらに標高が高いため、亜熱帯ジェット気流はチベット高原を境に北と南の2つの流れに分かれてしまう。"
+        },
+        {
+          "qas": [
+            {
+              "question": "高気圧の母体となる冷たく湿った気団を何という",
+              "id": "a10336p15q0",
+              "answers": [
+                {
+                  "text": "オホーツク海気団",
+                  "answer_start": 171
+                },
+                {
+                  "text": "オホーツク海気団",
+                  "answer_start": 171
+                },
+                {
+                  "text": "オホーツク海気団",
+                  "answer_start": 171
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "分かれた亜熱帯ジェット気流のうち、北側の分流は、樺太付近で何気流と合流する？",
+              "id": "a10336p15q1",
+              "answers": [
+                {
+                  "text": "寒帯ジェット気流",
+                  "answer_start": 38
+                },
+                {
+                  "text": "寒帯ジェット気流",
+                  "answer_start": 38
+                },
+                {
+                  "text": "寒帯ジェット気流",
+                  "answer_start": 38
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "どこ付近で寒帯ジェット気流と合流するか",
+              "id": "a10336p15q2",
+              "answers": [
+                {
+                  "text": "樺太",
+                  "answer_start": 33
+                },
+                {
+                  "text": "樺太付近",
+                  "answer_start": 33
+                },
+                {
+                  "text": "樺太",
+                  "answer_start": 33
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "オホーツク海高気圧の母体となる冷たく湿った気団は何か。",
+              "id": "a10336p15q3",
+              "answers": [
+                {
+                  "text": "オホーツク海気団",
+                  "answer_start": 171
+                },
+                {
+                  "text": "オホーツク海気団",
+                  "answer_start": 171
+                },
+                {
+                  "text": "オホーツク海気団",
+                  "answer_start": 171
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 分かれた亜熱帯ジェット気流のうち、北側の分流は、樺太付近で寒帯ジェット気流と合流する。さらにこの気流は、カムチャツカ半島付近で南側の分流と合流する。この合流の影響で上空の大気が滞ると、下降気流が発生して、その下層のオホーツク海上に高気圧ができる。この高気圧をオホーツク海高気圧といい、この高気圧の母体となる冷たく湿った気団をオホーツク海気団という。"
+        },
+        {
+          "qas": [
+            {
+              "question": "暖かく湿った気団を何という",
+              "id": "a10336p16q0",
+              "answers": [
+                {
+                  "text": "小笠原気団",
+                  "answer_start": 98
+                },
+                {
+                  "text": "小笠原気団",
+                  "answer_start": 98
+                },
+                {
+                  "text": "小笠原気団",
+                  "answer_start": 98
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "暖かく湿った気団を何気団というか",
+              "id": "a10336p16q1",
+              "answers": [
+                {
+                  "text": "小笠原気団",
+                  "answer_start": 98
+                },
+                {
+                  "text": "小笠原気団",
+                  "answer_start": 98
+                },
+                {
+                  "text": "小笠原気団",
+                  "answer_start": 98
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "太平洋中部の洋上でも高気圧が勢力を増し、範囲を西に広げてくる。この高気圧は北太平洋を帯状に覆う太平洋高気圧の西端を何というか",
+              "id": "a10336p16q2",
+              "answers": [
+                {
+                  "text": "小笠原高気圧",
+                  "answer_start": 71
+                },
+                {
+                  "text": "小笠原高気圧",
+                  "answer_start": 71
+                },
+                {
+                  "text": "小笠原高気圧",
+                  "answer_start": 71
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "小笠原高気圧の母体となる暖かく湿った気団は何か。",
+              "id": "a10336p16q3",
+              "answers": [
+                {
+                  "text": "小笠原気団",
+                  "answer_start": 98
+                },
+                {
+                  "text": "小笠原気団",
+                  "answer_start": 98
+                },
+                {
+                  "text": "小笠原気団",
+                  "answer_start": 98
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "暖かく湿った気団を何という？",
+              "id": "a10336p16q4",
+              "answers": [
+                {
+                  "text": "小笠原気団",
+                  "answer_start": 98
+                },
+                {
+                  "text": "小笠原気団",
+                  "answer_start": 98
+                },
+                {
+                  "text": "小笠原気団",
+                  "answer_start": 98
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 同じごろ、太平洋中部の洋上でも高気圧が勢力を増し、範囲を西に広げてくる。この高気圧は北太平洋を帯状に覆う太平洋高気圧の西端で小笠原高気圧ともいい、この母体となる暖かく湿った気団を小笠原気団という。"
+        },
+        {
+          "qas": [
+            {
+              "question": "5月下旬から6月上旬ごろに梅雨前線の影響下に入り始めるのは九州とどこか。",
+              "id": "a10336p17q0",
+              "answers": [
+                {
+                  "text": "四国",
+                  "answer_start": 29
+                },
+                {
+                  "text": "四国",
+                  "answer_start": 29
+                },
+                {
+                  "text": "四国",
+                  "answer_start": 29
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "九州や四国が梅雨前線の影響下に入り始める時期いつ？",
+              "id": "a10336p17q1",
+              "answers": [
+                {
+                  "text": "5月下旬から6月上旬",
+                  "answer_start": 9
+                },
+                {
+                  "text": "5月下旬から6月上旬ごろ",
+                  "answer_start": 9
+                },
+                {
+                  "text": "5月下旬から6月上旬ごろ",
+                  "answer_start": 9
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "5月下旬から6月上旬ごろ東日本の陽気は",
+              "id": "a10336p17q2",
+              "answers": [
+                {
+                  "text": "春のような天気",
+                  "answer_start": 127
+                },
+                {
+                  "text": "春のような天気",
+                  "answer_start": 127
+                },
+                {
+                  "text": "高気圧と低気圧が交互にやってくる春のような天気",
+                  "answer_start": 111
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "九州や四国が梅雨前線の影響下に入り始めるのはいつか",
+              "id": "a10336p17q3",
+              "answers": [
+                {
+                  "text": "5月下旬から6月上旬ごろ",
+                  "answer_start": 9
+                },
+                {
+                  "text": "5月下旬から6月上旬ごろ",
+                  "answer_start": 9
+                },
+                {
+                  "text": "5月下旬から6月上旬ごろ",
+                  "answer_start": 9
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 5月下旬から6月上旬ごろになると、九州や四国が梅雨前線の影響下に入り始める。このころから、梅雨前線の東部ではオホーツク海気団と小笠原気団のせめぎあいの色が濃くなってくる。一方、華北や朝鮮半島、東日本では、高気圧と低気圧が交互にやってくる春のような天気が続く。"
+        },
+        {
+          "qas": [
+            {
+              "question": "日本の地域で本格的な長雨に突入しない場所はどこか。",
+              "id": "a10336p18q0",
+              "answers": [
+                {
+                  "text": "北海道",
+                  "answer_start": 83
+                },
+                {
+                  "text": "北海道",
+                  "answer_start": 83
+                },
+                {
+                  "text": "北海道",
+                  "answer_start": 83
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "東北地方が梅雨入りするのはいつ",
+              "id": "a10336p18q1",
+              "answers": [
+                {
+                  "text": "7月",
+                  "answer_start": 66
+                },
+                {
+                  "text": "7月",
+                  "answer_start": 66
+                },
+                {
+                  "text": "7月",
+                  "answer_start": 66
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "華南や南西諸島が梅雨前線の勢力圏から抜けるのはいつか",
+              "id": "a10336p18q2",
+              "answers": [
+                {
+                  "text": "6月下旬",
+                  "answer_start": 38
+                },
+                {
+                  "text": "6月下旬",
+                  "answer_start": 38
+                },
+                {
+                  "text": "6月下旬",
+                  "answer_start": 38
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "江淮（長江流域・淮河流域）とはどこの国にあるでしょうか",
+              "id": "a10336p18q3",
+              "answers": [
+                {
+                  "text": "中国",
+                  "answer_start": 16
+                },
+                {
+                  "text": "中国",
+                  "answer_start": 16
+                },
+                {
+                  "text": "中国",
+                  "answer_start": 16
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "7月に入ると東北地方はどうなる",
+              "id": "a10336p18q4",
+              "answers": [
+                {
+                  "text": "梅雨入り",
+                  "answer_start": 77
+                },
+                {
+                  "text": "梅雨入り",
+                  "answer_start": 77
+                },
+                {
+                  "text": "梅雨入り",
+                  "answer_start": 77
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 次に梅雨前線は中国の江淮（長江流域・淮河流域）に北上する。6月下旬には華南や南西諸島が梅雨前線の勢力圏から抜ける。7月に入ると東北地方も梅雨入りし、北海道を除く日本の本土地域が本格的な長雨に突入する。また同じころ、朝鮮半島南部も長雨の時期に入る。"
+        },
+        {
+          "qas": [
+            {
+              "question": "亜熱帯ジェット気流がチベット高原よりも北を流れるようになり、合流してオホーツク海気団が弱まってくるのはいつ頃？",
+              "id": "a10336p19q0",
+              "answers": [
+                {
+                  "text": "7月半ば",
+                  "answer_start": 9
+                },
+                {
+                  "text": "7月半ばを過ぎると",
+                  "answer_start": 9
+                },
+                {
+                  "text": "7月半ば",
+                  "answer_start": 9
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "7月半ば過ぎにチベット高原よりも北を流れる気流をなんというか。",
+              "id": "a10336p19q1",
+              "answers": [
+                {
+                  "text": "亜熱帯ジェット気流",
+                  "answer_start": 19
+                },
+                {
+                  "text": "亜熱帯ジェット気流",
+                  "answer_start": 19
+                },
+                {
+                  "text": "亜熱帯ジェット気流",
+                  "answer_start": 19
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "日本本土や朝鮮半島もどこから順に梅雨明けするか",
+              "id": "a10336p19q2",
+              "answers": [
+                {
+                  "text": "南",
+                  "answer_start": 83
+                },
+                {
+                  "text": "南から順に梅雨明け",
+                  "answer_start": 113
+                },
+                {
+                  "text": "南から",
+                  "answer_start": 113
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "7月半ばを過ぎると日本本土や朝鮮半島はどうなる",
+              "id": "a10336p19q3",
+              "answers": [
+                {
+                  "text": "順に梅雨明けしてくる。",
+                  "answer_start": 116
+                },
+                {
+                  "text": "南から順に梅雨明け",
+                  "answer_start": 113
+                },
+                {
+                  "text": "梅雨明け",
+                  "answer_start": 118
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 7月半ばを過ぎると、亜熱帯ジェット気流がチベット高原よりも北を流れるようになり、合流してオホーツク海気団が弱まってくる。一方で、太平洋高気圧が日本の南海上を覆い続けて晴天が続くようになり、日本本土や朝鮮半島も南から順に梅雨明けしてくる。"
+        },
+        {
+          "qas": [
+            {
+              "question": "梅雨のような時期は秋にもあるが、これを何というか。",
+              "id": "a10336p2q0",
+              "answers": [
+                {
+                  "text": "秋雨",
+                  "answer_start": 96
+                },
+                {
+                  "text": "秋雨",
+                  "answer_start": 96
+                },
+                {
+                  "text": "秋雨",
+                  "answer_start": 96
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "梅雨の期間はふつうどのくらいの長さ？",
+              "id": "a10336p2q1",
+              "answers": [
+                {
+                  "text": "ふつう1か月から1か月半程度",
+                  "answer_start": 15
+                },
+                {
+                  "text": "1か月から1か月半程度",
+                  "answer_start": 18
+                },
+                {
+                  "text": "1か月から1か月半程度",
+                  "answer_start": 18
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "梅雨の期間はどのくらいか?",
+              "id": "a10336p2q2",
+              "answers": [
+                {
+                  "text": "ふつう1か月から1か月半程度",
+                  "answer_start": 15
+                },
+                {
+                  "text": "1か月から1か月半程度",
+                  "answer_start": 18
+                },
+                {
+                  "text": "1か月から1か月半程度",
+                  "answer_start": 18
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 梅雨の期間はふつう1か月から1か月半程度である。また、梅雨期の降水量は九州では500mm程度で年間の約4分の1・関東や東海では300mm程度で年間の約5分の1ある。西日本では秋雨より梅雨の方が雨量が多いが、東日本では逆に秋雨の方が多い（台風の寄与もある）。梅雨の時期や雨量は、年によって大きく変動する場合があり、例えば150mm程度しか雨が降らなかったり、梅雨明けが平年より2週間も遅れたりすることがある。そのような年は猛暑・少雨であったり冷夏・多雨であったりと、夏の天候が良くなく気象災害が起きやすい。"
+        },
+        {
+          "qas": [
+            {
+              "question": "性質の違う2つの空気を何と言うか",
+              "id": "a10336p20q0",
+              "answers": [
+                {
+                  "text": "気団",
+                  "answer_start": 20
+                },
+                {
+                  "text": "気団",
+                  "answer_start": 20
+                },
+                {
+                  "text": "気団",
+                  "answer_start": 20
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "性質の違う2つの空気を何と呼ぶ",
+              "id": "a10336p20q1",
+              "answers": [
+                {
+                  "text": "気団",
+                  "answer_start": 20
+                },
+                {
+                  "text": "気団",
+                  "answer_start": 20
+                },
+                {
+                  "text": "気団",
+                  "answer_start": 20
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "例年５月～７月に起こる、雨の多い時期を何というか。",
+              "id": "a10336p20q2",
+              "answers": [
+                {
+                  "text": "梅雨",
+                  "answer_start": 0
+                },
+                {
+                  "text": "梅雨",
+                  "answer_start": 0
+                },
+                {
+                  "text": "梅雨",
+                  "answer_start": 0
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 性質の違う2つの空気（気団という）がぶつかる所は大気の状態が不安定になり、前線が発生する。梅雨前線を構成する気団はいずれも勢力が拮抗しているため、ほぼ同じ地域を南北にゆっくりと移動する停滞前線となる。"
+        },
+        {
+          "qas": [
+            {
+              "question": "海洋を本拠地とする気団は何性気団か",
+              "id": "a10336p21q0",
+              "answers": [
+                {
+                  "text": "海洋性気団",
+                  "answer_start": 42
+                },
+                {
+                  "text": "海洋性気団",
+                  "answer_start": 42
+                },
+                {
+                  "text": "海洋性気団",
+                  "answer_start": 42
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "海洋を本拠地とする気団の名前は",
+              "id": "a10336p21q1",
+              "answers": [
+                {
+                  "text": "海洋性気団",
+                  "answer_start": 42
+                },
+                {
+                  "text": "海洋性気団",
+                  "answer_start": 42
+                },
+                {
+                  "text": "海洋性気団",
+                  "answer_start": 42
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "海のことを別名何というか。",
+              "id": "a10336p21q2",
+              "answers": [
+                {
+                  "text": "海洋",
+                  "answer_start": 30
+                },
+                {
+                  "text": "海洋",
+                  "answer_start": 30
+                },
+                {
+                  "text": "海洋",
+                  "answer_start": 30
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 梅雨前線の南側を構成する2つの気団はともに海洋を本拠地とする気団（海洋性気団）のため、海洋から大量の水蒸気を吸収して湿潤な空気を持っている。ただ、北側の気団と南側の気団とではお互いの温度差が小さいため、通常はほとんどが乱層雲の弱い雨雲で構成される。そのため、しとしととあまり強くない雨を長時間降らせる。"
+        },
+        {
+          "qas": [
+            {
+              "question": "2つの高気圧がせめぎあい、勢力のバランスがほぼつり合っているとき、梅雨前線の動き方はどうなるか",
+              "id": "a10336p22q0",
+              "answers": [
+                {
+                  "text": "ほとんど動かない",
+                  "answer_start": 47
+                },
+                {
+                  "text": "ほとんど動かない",
+                  "answer_start": 47
+                },
+                {
+                  "text": "ほとんど動かない",
+                  "answer_start": 47
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 2つの高気圧がせめぎあい、勢力のバランスがほぼつり合っているとき、梅雨前線はほとんど動かない。しかし、2つの高気圧の勢力のバランスが崩れたときや、低気圧が近づいてきたり、前線付近に低気圧が発生したりしたときは一時的に温暖前線や寒冷前線となることもある。梅雨前線の活動が太平洋高気圧の勢力拡大によって弱まるか、各地域の北側に押し上げられ、今後前線の影響による雨が降らない状況になったとき、梅雨が終わったとみなされる。"
+        },
+        {
+          "qas": [
+            {
+              "question": "本当の夏が長いのは近畿地方と北陸地方どちらか",
+              "id": "a10336p23q0",
+              "answers": [
+                {
+                  "text": "近畿地方",
+                  "answer_start": 63
+                },
+                {
+                  "text": "近畿地方",
+                  "answer_start": 63
+                },
+                {
+                  "text": "近畿地方",
+                  "answer_start": 63
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "近畿地方における夏は北陸地方よりも長い？短い？",
+              "id": "a10336p23q1",
+              "answers": [
+                {
+                  "text": "長い",
+                  "answer_start": 286
+                },
+                {
+                  "text": "長い",
+                  "answer_start": 286
+                },
+                {
+                  "text": "長い",
+                  "answer_start": 286
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "７月頃に例年ある、長い雨の時期を抜けることを何というか。",
+              "id": "a10336p23q2",
+              "answers": [
+                {
+                  "text": "梅雨明け",
+                  "answer_start": 185
+                },
+                {
+                  "text": "梅雨明け",
+                  "answer_start": 185
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "年によっては梅雨入りの時期が特定できなかったり、あるいは発表がされないこともある。東・西日本（特に四国地方・近畿地方・北陸地方）ではこのパターンはどれくらい発生するか？",
+              "id": "a10336p23q3",
+              "answers": [
+                {
+                  "text": "数年に一回の割合で起こる",
+                  "answer_start": 82
+                },
+                {
+                  "text": "数年に一回",
+                  "answer_start": 82
+                },
+                {
+                  "text": "数年に一回の割合",
+                  "answer_start": 82
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 年によっては梅雨入りの時期が特定できなかったり、あるいは発表がされないこともある。東・西日本（特に四国地方・近畿地方・北陸地方）ではこのパターンが数年に一回の割合で起こる。これは、太平洋高気圧の勢力が強いために梅雨前線が北陸地方から北上して進みそのまま夏空に突入し、南の高気圧となって次第に南下していくパターンである（小暑を境にして、小暑以降はそのまま梅雨明けになる）。この場合でも、四国地方、近畿地方、北陸地方では高温や晴天がやや多くなるものの、概ね晴天が続く「夏」が訪れている。このことから、年によっては、近畿地方における（本当の）夏は北陸地方よりも長いとされている。"
+        },
+        {
+          "qas": [
+            {
+              "question": "立秋を境にして、立秋以降の長雨のことを何雨と呼ぶか",
+              "id": "a10336p24q0",
+              "answers": [
+                {
+                  "text": "秋雨",
+                  "answer_start": 150
+                },
+                {
+                  "text": "秋雨",
+                  "answer_start": 150
+                },
+                {
+                  "text": "秋雨",
+                  "answer_start": 150
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "梅雨が日本の中でない地域はどこか。",
+              "id": "a10336p24q1",
+              "answers": [
+                {
+                  "text": "北海道",
+                  "answer_start": 207
+                },
+                {
+                  "text": "東北地方",
+                  "answer_start": 51
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "東北地方における夏は北海道よりも長い？短い？",
+              "id": "a10336p24q2",
+              "answers": [
+                {
+                  "text": "短い",
+                  "answer_start": 280
+                },
+                {
+                  "text": "短い",
+                  "answer_start": 280
+                },
+                {
+                  "text": "短い",
+                  "answer_start": 280
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 年によっては梅雨明けの時期が特定できなかったり、あるいは発表がされないこともある。　東北地方（特に青森・岩手・秋田の北東北3県）、関東甲信地方ではこのパターンが数年に一度の割合で起こる。これは、オホーツク高気圧の勢力が強いために梅雨前線が東北地方から北上できずにそのまま秋に突入し、秋雨前線となって次第に南下していくパターンである（立秋を境にして、立秋以降の長雨を秋雨とする）。この場合でも、北の北海道では低温や曇天がやや多くなるものの、概ね晴天が続く「夏」が訪れている。このことから、年によっては、東北地方における（本当の）夏は北海道よりも短いとされている。"
+        },
+        {
+          "qas": [
+            {
+              "question": "インドをはじめとした南アジアや東南アジアのモンスーン",
+              "id": "a10336p25q0",
+              "answers": [
+                {
+                  "text": "梅雨",
+                  "answer_start": 0
+                },
+                {
+                  "text": "モンスーン前線",
+                  "answer_start": 34
+                },
+                {
+                  "text": "モンスーン・アジア",
+                  "answer_start": 215
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "梅雨前線は、気象学的には何をもたらす前線の1つであるか",
+              "id": "a10336p25q1",
+              "answers": [
+                {
+                  "text": "モンスーン",
+                  "answer_start": 21
+                },
+                {
+                  "text": "モンスーン前線",
+                  "answer_start": 34
+                },
+                {
+                  "text": "モンスーン",
+                  "answer_start": 21
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "気象学的にはモンスーンをもたらす前線（モンスーン前線）の1つである前線は何か",
+              "id": "a10336p25q2",
+              "answers": [
+                {
+                  "text": "梅雨前線",
+                  "answer_start": 9
+                },
+                {
+                  "text": "梅雨前線",
+                  "answer_start": 9
+                },
+                {
+                  "text": "梅雨前線",
+                  "answer_start": 9
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "気象学的にはモンスーンをもたらす前線は？",
+              "id": "a10336p25q3",
+              "answers": [
+                {
+                  "text": "梅雨前線",
+                  "answer_start": 9
+                },
+                {
+                  "text": "梅雨前線",
+                  "answer_start": 9
+                },
+                {
+                  "text": "梅雨前線",
+                  "answer_start": 9
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "梅雨 [SEP] 梅雨前線は、気象学的にはモンスーンをもたらす前線（モンスーン前線）の1つである。インドをはじめとした南アジアや東南アジアのモンスーンは、インド洋や西太平洋に端を発する高温多湿の気流が原因である。世界最多の年間降水量を有する地域（インドのチェラプンジ）を含むなど、この地域のモンスーンは地球上で最も規模が大きく、広範囲で連動して発生していることから、総称してアジア・モンスーンと呼ばれる。またこの影響を受ける地域をモンスーン・アジアという。"
+        }
+      ]
+    }
+  ]
+}
