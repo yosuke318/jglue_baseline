@@ -1,146 +1,136 @@
-import torch
-from transformers import RobertaTokenizer, RobertaForSequenceClassification
-from torch.utils.data import DataLoader, Dataset
-import json
-import git
-import random
+import pandas as pd
+from transformers.trainer_utils import set_seed
+from transformers import (BatchEncoding, AutoTokenizer, Trainer,
+                          TrainingArguments, DataCollatorWithPadding, AutoModelForSequenceClassification)
+
 import numpy as np
+from scipy.stats import pearsonr, spearmanr
 
-# 乱数生成器のシードを設定
-seed = 42
-torch.manual_seed(seed)
-np.random.seed(seed)
-random.seed(seed)
+from pprint import pprint
+from datasets import load_dataset, Dataset
+
+# 乱数シードを42に固定
+set_seed(42)
+
+# Hugging Face Hub上のllm-book/JGLUEのリポジトリからJSTSのデータを読み込む
+train_dataset = load_dataset(
+    "shunk031/JGLUE", name="JSTS", split="train"
+)
+valid_dataset = load_dataset(
+    "shunk031/JGLUE", name="JSTS", split="validation"
+)
+
+# データセットをDataFrameに変換
+df_train = pd.DataFrame(train_dataset)
+df_valid = pd.DataFrame(valid_dataset)
+
+# 最初の100行を抽出
+df_train = df_train.head(80)
+df_valid = df_valid.head(20)
+df_test = df_valid.tail(20)  # testデータはvalidから取得する
+
+# dfをdataset型へ戻す
+ds_train = Dataset.from_pandas(df_train)
+ds_valid = Dataset.from_pandas(df_valid)
+ds_test = Dataset.from_pandas(df_test)
+
+# Hugging Face Hub上のモデル名を指定
+model_name = "cl-tohoku/bert-base-japanese-v3"
+# モデル名からトークナイザを読み込む
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 
-# データの準備
-class CustomDataset(Dataset):
-    def __init__(self, sentences, labels, tokenizer, max_len):
-        self.sentences = sentences
-        self.labels = labels
-        self.tokenizer = tokenizer
-        self.max_len = max_len
+def preprocess_text_pair_classification(
+    example: dict[str, str | int]
+) -> BatchEncoding:
+    """文ペア関係予測の事例をトークナイズし、IDに変換"""
+    # 出力は"input_ids", "token_type_ids", "attention_mask"をkeyとし、
+    # list[int]をvalueとするBatchEncodingオブジェクト
+    encoded_example = tokenizer(
+        example["sentence1"], example["sentence2"], max_length=128
+    )
 
-    def __len__(self):
-        return len(self.sentences)
-
-    def __getitem__(self, idx):
-        """
-        Dataloader読み取り用のデータを返す。
-        :param idx:
-        :return:
-        """
-        sentence = self.sentences[idx]
-        label = self.labels[idx]
-        encoding = self.tokenizer(sentence, truncation=True, padding='max_length', max_length=self.max_len,
-                                  return_tensors='pt')
-        return {
-            'input_ids': encoding['input_ids'].flatten(),
-            'attention_mask': encoding['attention_mask'].flatten(),
-            'labels': torch.tensor(label, dtype=torch.float)
-        }
+    # BertForSequenceClassificationのforwardメソッドが
+    # 受け取るラベルの引数名に合わせて"labels"をキーにする
+    encoded_example["labels"] = example["label"]
+    return encoded_example
 
 
-# ハイパーパラメータ
-MAX_LEN = 128
-BATCH_SIZE = 16
-LEARNING_RATE = 2e-5
-EPOCHS = 3
+# train, valid, testデータをencodeする
+encoded_train_dataset = ds_train.map(
+    preprocess_text_pair_classification,
+    remove_columns=ds_train.column_names,
+)
 
-# 学習データの読み込み
-train_json = open('training.json', 'r')
-train_data = json.load(train_json)['train']
+encoded_valid_dataset = ds_valid.map(
+    preprocess_text_pair_classification,
+    remove_columns=ds_valid.column_names,
+)
 
-# 検証データの読み込み
-valid_json = open('validation.json', 'r')
-val_data = json.load(valid_json)['valid']
+encoded_test_dataset = ds_test.map(
+    preprocess_text_pair_classification,
+    remove_columns=ds_test.column_names,
+)
 
-train_sentences = [data['sentence1'] + ' ' + data['sentence2'] for data in train_data]
-train_labels = [data['label'] for data in train_data]
 
-val_sentences = [data['sentence1'] + ' ' + data['sentence2'] for data in val_data]
-val_labels = [data['label'] for data in val_data]
+# ミニバッチ構築
+data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 
-# トークナイザーの準備
-tokenizer = RobertaTokenizer.from_pretrained('roberta-base')
+batch_inputs = data_collator(encoded_train_dataset[0:4])
 
-train_dataset = CustomDataset(train_sentences, train_labels, tokenizer, MAX_LEN)
-val_dataset = CustomDataset(val_sentences, val_labels, tokenizer, MAX_LEN)
 
-train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
-val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False)
+transformers_model_name = "cl-tohoku/bert-base-japanese-v3"
 
-# robertaモデルの準備
-model = RobertaForSequenceClassification.from_pretrained('roberta-base', num_labels=1)
-model.train()
+model = AutoModelForSequenceClassification.from_pretrained(
+    transformers_model_name,
+    num_labels=1,
+    problem_type="regression",
+)
 
-# オプティマイザーの設定
-optimizer = torch.optim.AdamW(model.parameters(), lr=LEARNING_RATE)
+result_path = './tasks/jsts/result'
 
-# 学習ループ
-for epoch in range(EPOCHS):
-    for batch in train_loader:
-        input_ids = batch['input_ids']
-        attention_mask = batch['attention_mask']
-        labels = batch['labels']
+training_args = TrainingArguments(
+    output_dir=result_path,  # 結果の保存フォルダ
+    auto_find_batch_size=True,  # 自動で調整
+    # per_device_train_batch_size=32,  # 訓練時のバッチサイズ
+    # per_device_eval_batch_size=32,  # 評価時のバッチサイズ
+    learning_rate=2e-5,  # 学習率
+    lr_scheduler_type="linear",  # 学習率スケジューラの種類
+    warmup_ratio=0.1,  # 学習率のウォームアップの長さを指定
+    num_train_epochs=1,  # エポック数
+    save_strategy="epoch",  # チェックポイントの保存タイミング
+    logging_strategy="epoch",  # ロギングのタイミング
+    evaluation_strategy="epoch",  # 検証セットによる評価のタイミング
+    load_best_model_at_end=True,  # 訓練後に開発セットで最良のモデルをロード
+    metric_for_best_model="spearmanr",  # 最良のモデルを決定する評価指標
+    # fp16=True,  # 自動混合精度演算の有効化(cudaかNPUのみ使える)
+)
 
-        optimizer.zero_grad()
-        outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
-        loss = outputs.loss
-        loss.backward()
-        optimizer.step()
 
-    # バリデーション
-    val_loss = 0
-    with torch.no_grad():
-        for batch in val_loader:
-            input_ids = batch['input_ids']
-            attention_mask = batch['attention_mask']
-            labels = batch['labels']
-
-            outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
-            val_loss += outputs.loss.item()
-
-    print(f"Epoch {epoch + 1}/{EPOCHS}, Validation Loss: {val_loss / len(val_loader)}")
-
-# 以下は推論
-# 推論用のデータを用意する
-new_data = [
-    {
-        "sentence1": "林の中を1台の自転車が走行しています。",
-        "sentence2": "林の中で1台の自転車が走行しています。",
-    },
-    {
-        "sentence1": "猫が庭で寝ている",
-        "sentence2": "ゴミが落ちている",
+def compute_correlation_metrics(eval_pred: tuple[np.ndarray, np.ndarray]) -> dict[str, float]:
+    """
+    予測スコアと正解スコアからピアソン相関係数とスピアマン相関係数を計算
+    """
+    predictions, labels = eval_pred
+    predictions = predictions.squeeze(1)
+    return {
+        "pearsonr": pearsonr(predictions, labels).statistic,
+        "spearmanr": spearmanr(predictions, labels).statistic,
     }
-]
-
-# データをトークン化し、PyTorchのテンソルに変換する
-inputs = []
-for example in new_data:
-    encoding = tokenizer(example["sentence1"], example["sentence2"], truncation=True, padding='max_length', max_length=MAX_LEN, return_tensors='pt')
-    inputs.append({
-        'input_ids': encoding['input_ids'].flatten(),
-        'attention_mask': encoding['attention_mask'].flatten(),
-    })
-
-# 推論を実行する
-model.eval()
-with torch.no_grad():
-    for example in inputs:
-        input_ids = example['input_ids'].unsqueeze(0)  # バッチサイズ1の次元を追加
-        attention_mask = example['attention_mask'].unsqueeze(0)  # バッチサイズ1の次元を追加
-        outputs = model(input_ids, attention_mask=attention_mask)
-        print("Prediction:", outputs.logits.item())
 
 
-# 現在のリポジトリのコミットIDを取得
-repo = git.Repo(search_parent_directories=True)
-commit_id = repo.head.object.hexsha
+trainer = Trainer(
+    model=model,
+    train_dataset=encoded_train_dataset,
+    eval_dataset=encoded_valid_dataset,
+    data_collator=data_collator,
+    args=training_args,
+    compute_metrics=compute_correlation_metrics,
+)
+trainer.train()
 
-# モデルを保存するパス
-save_path = f"models/roberta_sequence_classification_model_{commit_id}.pt"
 
-# モデルを保存
-torch.save(model.state_dict(), save_path)
+# 検証セットでモデルを評価
+eval_metrics = trainer.evaluate(encoded_test_dataset)
+pprint(eval_metrics)
+
