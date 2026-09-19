@@ -100,7 +100,7 @@ cd tasks/jsts && mkdir -p models && python jsts_sample.py
 mkdir -p tasks/marcja/models tasks/marcja/result && python -m tasks.marcja.marcja
 ```
 
-データの中身を確認したい場合は、`load_marcja_data.py` を実行すると `tasks/marcja/` に CSV が出力されます。
+データの中身を確認したい場合は、`load_marcja_data.py` を直接実行すると `tasks/marcja/` に CSV（`ds_train.csv` / `ds_valid.csv`）が出力されます（`marcja.py` から import された場合は出力されません）。
 
 ```bash
 python -m tasks.marcja.load_marcja_data

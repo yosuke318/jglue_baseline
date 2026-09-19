@@ -19,11 +19,12 @@ def load_marc_data():
     return train_dataset, valid_dataset
 
 
-train_dataset, valid_dataset = load_marc_data()
+if __name__ == "__main__":
+    train_dataset, valid_dataset = load_marc_data()
 
-# データ確認用
-df = pd.DataFrame(train_dataset)
-df.to_csv('./tasks/marcja/ds_train.csv', index=False)
+    # データ確認用
+    df = pd.DataFrame(train_dataset)
+    df.to_csv('./tasks/marcja/ds_train.csv', index=False)
 
-df = pd.DataFrame(valid_dataset)
-df.to_csv('./tasks/marcja/ds_valid.csv', index=False)
+    df = pd.DataFrame(valid_dataset)
+    df.to_csv('./tasks/marcja/ds_valid.csv', index=False)
